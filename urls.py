@@ -4,8 +4,8 @@ from rest_framework.routers import DefaultRouter
 from roads.views import RoadViewSet
 
 router = DefaultRouter()
-router.register(r"roads", RoadViewSet, basename="roads")
+router.register("roads/", RoadViewSet)
 urlpatterns = [
     path("", include(router.urls)),
-    path("admin/", admin.site.urls),
+    path("admi/", admin.site.urls),
 ]
