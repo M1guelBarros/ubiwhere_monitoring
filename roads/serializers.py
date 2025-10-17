@@ -15,12 +15,14 @@ class RoadSerializer(serializers.ModelSerializer):
             "lat_start",
             "lat_end",
             "length",
-            "speed",
             "updated_time",
             "intensity",
         ]
 
     def get_intensity(self, obj):
+        speed = getattr(obj, "speed", None)
+        if speed is None:
+            return None
         if obj.speed <= 20:
             return "elevada"
         elif obj.speed <= 50:

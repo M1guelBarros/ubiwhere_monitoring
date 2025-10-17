@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "roads",
     "sensors",
+    "readings",
 ]
 
 MIDDLEWARE = [
