@@ -1,5 +1,6 @@
 from django.db import models
 from roads.models import Road
+from sensors.models import Sensor
 
 
 class Reading(models.Model):
@@ -10,6 +11,14 @@ class Reading(models.Model):
     )
     speed = models.FloatField()
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    sensor = models.ForeignKey(
+        Sensor,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="readings",
+    )
 
     class Meta:
         ordering = ["-timestamp"]
