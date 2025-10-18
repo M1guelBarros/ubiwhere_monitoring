@@ -4,3 +4,5 @@ drf-spectacular
 psycopg2-binary
 pandas
 django-filter
+drf-spectacular
+drf-spectacular-sidecar
