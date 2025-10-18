@@ -4,7 +4,8 @@ from .models import Road
 
 class RoadSerializer(serializers.ModelSerializer):
 
-    intensity = serializers.SerializerMethodField()
+    intensity = serializers.CharField()
+    readings_count = serializers.IntegerField()
 
     class Meta:
         model = Road
@@ -17,15 +18,5 @@ class RoadSerializer(serializers.ModelSerializer):
             "length",
             "updated_time",
             "intensity",
+            "readings_count",
         ]
-
-    def get_intensity(self, obj):
-        speed = getattr(obj, "speed", None)
-        if speed is None:
-            return None
-        if obj.speed <= 20:
-            return "elevada"
-        elif obj.speed <= 50:
-            return "média"
-        else:
-            return "baixa"

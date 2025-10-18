@@ -6,4 +6,4 @@ class ReadingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Reading
-        fields = ["id", "road", "speed", "timestamp"]
+        fields = ["id", "road", "sensor", "speed", "timestamp"]
